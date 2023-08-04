@@ -1,3 +1,13 @@
-export default function Home() {
-  return <main>Hello</main>;
+"use client"
+import React from 'react'
+import { HeroSection } from './components/HeroSection'
+import FeatureSection from './components/FeatureSection'
+
+export default function page() {
+  return (
+    <div>
+      <HeroSection/>
+      <FeatureSection/>
+    </div>
+  )
 }
