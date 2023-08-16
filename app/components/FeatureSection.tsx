@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+import star from "../../public/star.svg";
 
 export default function FeatureSection() {
   const features = [
@@ -117,21 +119,29 @@ export default function FeatureSection() {
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec congue, nisl eget molestie varius, enim ex faucibus purus.",
     },
   ];
+
   return (
-    <section className=" mb-14 text-gray-600">
-      <div className="max-w-screen-xl mx-auto px-4 text-center  md:px-8">
-        <div className="max-w-2xl mx-auto">
-          <h3 className=" text-3xl font-semibold sm:text-4xl">Core Features</h3>
+    <section className="flex justify-center items-center min-h-screen bg-white px-2 md:px-0 py-16 sm:py-0">
+      <div className="flex flex-col gap-5 lg:w-6/12">
+        <div className="flex items-center justify-center">
+          <h3 className=" text-3xl text-center text-secondary-500 opacity-90 font-semibold sm:text-4xl">Core Features</h3>
+          <div>
+            <Image
+            className=" h-14"
+              src={star}
+              alt="image"
+            />
+          </div>
         </div>
         <div className="mt-12">
-          <ul className="grid gap-y-8 gap-x-12 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="grid gap-y-8 gap-x-12 sm:grid-cols-2 ">
             {features.map((item, idx) => (
               <li
                 key={idx}
                 className="space-y-3">
-                <div className="w-12 h-12 mx-auto bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center">{item.icon}</div>
-                <h4 className="text-lg  font-semibold">{item.title}</h4>
-                <p className=" text-gray-500 ">{item.desc}</p>
+                <div className="w-12 h-12 mx-auto bg-primary-10 text-primary-600 rounded-full flex items-center justify-center">{item.icon}</div>
+                <h4 className="text-lg text-center text-secondary-500 opacity-90  font-semibold">{item.title}</h4>
+                <p className=" text-secondary-500 desc text-center ">{item.desc}</p>
               </li>
             ))}
           </ul>

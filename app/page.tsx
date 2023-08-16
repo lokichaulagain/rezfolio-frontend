@@ -5,7 +5,7 @@ import FeatureSection from './components/FeatureSection'
 
 export default function page() {
   return (
-    <div>
+    <div className=' '>
       <HeroSection/>
       <FeatureSection/>
     </div>

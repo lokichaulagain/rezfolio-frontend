@@ -8,13 +8,18 @@
   color: #3949ab;
 }
 
+.global_input {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
 
-.global_input{
-border: none;
-outline:none;
-box-shadow: none;
-background: transparent;
-width: "100%",
-padding: 0,
-margin: 0,
+.desc {
+  line-height: 28px;
+  opacity: 0.8;
+  font-weight: 400;
 }
