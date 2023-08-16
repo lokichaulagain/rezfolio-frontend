@@ -1,10 +1,6 @@
 "use client";
-import { Group, ActionIcon, Text } from "@mantine/core";
-import Image from "next/image";
-import logo2 from "../../public/icon2.jpg";
+import { Text } from "@mantine/core";
 import GithubIcon from "./icons/GithubIcon";
-import TwitterIcon from "./icons/TwitterIcon";
-import LinkedinIcon from "./icons/LinkedinIcon";
 import Link from "next/link";
 
 export function Footer() {
@@ -14,7 +10,7 @@ export function Footer() {
         <Text
           color="dimmed"
           size="sm">
-          © 2023 lokendra chaulagain. All rights reserved.
+          © 2023 lokendra chaulagain.
         </Text>
 
         <Link
