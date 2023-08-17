@@ -49,7 +49,7 @@ interface CreateResume {
 }
 
 export class resumeRepository {
-  static get = async (id: number) => {
+  static get = async (id: any) => {
     try {
       const response = await AxiosInstance.get(`http://localhost:4000/api/resume/${id}`);
       return response;
@@ -58,7 +58,7 @@ export class resumeRepository {
     }
   };
 
-  static update = async (id: number, data: CreateResume) => {
+  static update = async (id: any, data: CreateResume) => {
     try {
       const response = await AxiosInstance.patch(`http://localhost:4000/api/resume/${id}`, data);
       return response;
@@ -69,7 +69,7 @@ export class resumeRepository {
 
   static create = async (data: CreateResume) => {
     try {
-      const response = await AxiosInstance.post("/messages", data);
+      const response = await AxiosInstance.post("http://localhost:4000/api/resume", data);
       return response;
     } catch (error) {
       console.error("Error while creating:", error);

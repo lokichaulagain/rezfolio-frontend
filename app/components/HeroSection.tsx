@@ -2,7 +2,7 @@
 import { Button } from "@mantine/core";
 import Image from "next/image";
 import rocket from "../../public/rocket.svg";
-
+import Link from "next/link";
 
 export function HeroSection() {
   return (
@@ -22,19 +22,23 @@ export function HeroSection() {
         <p className="text-center font-medium text-secondary-500 opacity-75 desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, ex magni magnam excepturi accusantium a qui explicabo saepe, aperiam facere doloremque. Iste veniam impedit asperiores ratione quae velit explicabo nihil.</p>
 
         <div className="flex justify-center gap-3">
-          <Button
-            className=" bg-white hover:bg-white text-secondary-500 border-primary-600"
-            size="lg">
-            View Demo
-          </Button>
-          <Button
-            className=" bg-primary-600 hover:bg-primary-600 "
-            size="lg">
-            Create Resume
-          </Button>
+          <Link href={"/view-demo"}>
+            <Button
+              className=" bg-white hover:bg-white text-secondary-500 border-primary-600"
+              size="lg">
+              View Demo
+            </Button>
+          </Link>
+
+          <Link href={"/create-resume"}>
+            <Button
+              className=" bg-primary-600 hover:bg-primary-600 "
+              size="lg">
+              Create Resume
+            </Button>
+          </Link>
         </div>
       </div>
-      
     </div>
   );
 }

@@ -6,9 +6,7 @@ import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [opened, { toggle, close }] = useDisclosure(false);
-  console.log(opened);
   const pathname = usePathname();
-  console.log(pathname);
 
   const links = [
     {
@@ -67,7 +65,7 @@ export default function Navbar() {
                 href={link.href}
                 key={index}
                 onClick={close}>
-                <p className={` ${isActive ? "bg-primary-600 text-white" : ""} ${"py-3 px-3 hover:bg-primary-600 rounded hover:text-white"}`}> {link.label}</p>
+                <p className={` ${isActive ? "bg-primary-600 text-white" : ""} ${"py-3 px-3 hover:bg-gray-600 rounded hover:text-white"}`}> {link.label}</p>
               </Link>
             );
           })}

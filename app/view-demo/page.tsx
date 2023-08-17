@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player/lazy";
 import bulb from "../../public/bulb.svg";
 
-export default function page() {
+export default function Page() {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
