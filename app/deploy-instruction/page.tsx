@@ -5,7 +5,7 @@ import ReactPlayer from "react-player/lazy";
 import bulb from "../../public/bulb.svg";
 import ForWardIcon from "../components/icons/ForWardIcon";
 import Link from "next/link";
-import { Button } from "@mantine/core";
+import { Button, CopyButton, Input } from "@mantine/core";
 
 export default function Page() {
   const [isClient, setIsClient] = useState(false);
@@ -13,6 +13,17 @@ export default function Page() {
   useEffect(() => {
     setIsClient(true);
   }, []);
+
+  const [rezfolioResumeId, setRezfolioResumeId] = useState<any>();
+  const [apiUrl, setApiUrl] = useState<string>("");
+  useEffect(() => {
+    const id = localStorage.getItem("rezfolioResumeId");
+    setRezfolioResumeId(id);
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/resume/${id}`;
+    setApiUrl(url);
+  }, []);
+
+  const repositoryUrl = "https://github.com/lokendra-chaulagain/Rezfolio-Templates/tree/rizfolio-template-classic-production";
 
   return (
     <section className="flex justify-center min-h-screen  pt-24 pb-20 px-3 lg:px-0 ">
@@ -72,6 +83,60 @@ export default function Page() {
             <p className="global_input text-gray-600 opacity-95 font-semibold  "> Step-3. Deploy</p>
           </div>
           <p className="global_input  desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat repellendus perspiciatis quas? Tempora ullam recusandae incidunt itaque nobis adipisci placeat!</p>
+          <p className="global_input text-gray-500 text-sm font-semibold">Environment Variables</p>
+
+          {/* <div className="flex items-center gap-2 w-full">
+            <Input
+              className="w-full"
+              readOnly
+            />
+             <CopyButton value={apiUrl}>
+              {({ copied, copy }) => (
+                <Button
+                  className={`bg-primary-500 hover:bg-primary-500  ${copied ? "bg-green-500 hover:bg-green-500 " : "bg-primary-500 "}`}
+                  onClick={copy}>
+                  {copied ? "Copied " : "Copy "}
+                </Button>
+              )}
+            </CopyButton>
+          </div> */}
+
+          <p className="global_input text-gray-500 text-sm font-semibold ">API URL</p>
+          <div className="flex items-center gap-2 w-full">
+            <Input
+            value={apiUrl}
+              className="w-full"
+              readOnly
+            />
+            <CopyButton value={apiUrl}>
+              {({ copied, copy }) => (
+                <Button
+                  className={`bg-primary-500 hover:bg-primary-500  ${copied ? "bg-green-500 hover:bg-green-500 " : "bg-primary-500 "}`}
+                  onClick={copy}>
+                  {copied ? "Copied " : "Copy "}
+                </Button>
+              )}
+            </CopyButton>
+          </div>
+
+          <p className="global_input text-gray-500 text-sm font-semibold ">Repository URL</p>
+          <div className="flex items-center gap-2 w-full">
+            <Input
+            value={repositoryUrl}
+              className="w-full"
+              readOnly
+            />
+
+            <CopyButton value={repositoryUrl}>
+              {({ copied, copy }) => (
+                <Button
+                  className={`bg-primary-500 hover:bg-primary-500  ${copied ? "bg-green-500 hover:bg-green-500 " : "bg-primary-500 "}`}
+                  onClick={copy}>
+                  {copied ? "Copied " : "Copy "}
+                </Button>
+              )}
+            </CopyButton>
+          </div>
         </div>
 
         <div className="flex justify-center ">

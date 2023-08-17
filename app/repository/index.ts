@@ -1,8 +1,7 @@
-import config from "@/config";
 import axios from "axios";
 
 export const AxiosInstance = axios.create({
-  baseURL: config.NEXT_PUBLIC_API_URL,
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
   // Add any additional configuration options here
 });
 
@@ -51,7 +50,7 @@ interface CreateResume {
 export class resumeRepository {
   static get = async (id: any) => {
     try {
-      const response = await AxiosInstance.get(`http://localhost:4000/api/resume/${id}`);
+      const response = await AxiosInstance.get(`/resume/${id}`);
       return response;
     } catch (error) {
       console.error("Error while fetching:", error);
@@ -60,7 +59,7 @@ export class resumeRepository {
 
   static update = async (id: any, data: CreateResume) => {
     try {
-      const response = await AxiosInstance.patch(`http://localhost:4000/api/resume/${id}`, data);
+      const response = await AxiosInstance.patch(`/resume/${id}`, data);
       return response;
     } catch (error) {
       console.error("Error while updating:", error);
@@ -69,19 +68,10 @@ export class resumeRepository {
 
   static create = async (data: CreateResume) => {
     try {
-      const response = await AxiosInstance.post("http://localhost:4000/api/resume", data);
+      const response = await AxiosInstance.post("/resume", data);
       return response;
     } catch (error) {
       console.error("Error while creating:", error);
-    }
-  };
-
-  static count = async () => {
-    try {
-      const response = await AxiosInstance.get("/messages/count");
-      return response;
-    } catch (error) {
-      console.error("Error while fetching:", error);
     }
   };
 }
